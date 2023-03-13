@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <title>Juego de la Suerte</title>
- 
+    <link rel="stylesheet" href="./assets/css/mistyle.css">
+    <title>Juego de la suerte</title>
+
 </head>
-<!--Juego de los números. -->
 <body>
 
     <div style="margin: 15px 25px">
@@ -21,7 +21,7 @@
                     <h5 id="mensaje"></h5>
                     <div class="row">
                         <div class="col-sm-8">
-                            <label style="width: 100%; font-size:larger; font-weight: bold;">IA:</label>
+                            <label style="width: 100%; font-size:larger; font-weight: bold;">Jugador 1:</label>
                         </div>
                         <div class="col-sm-4">                        
                             <label style="width: 100%" id="labelPtsIa">0</label>
@@ -29,7 +29,7 @@
                     </div>
                     <div class="row">
                         <div class="col-sm-8">
-                            <label style="width: 100%; font-size:larger; font-weight: bold;">Jugador 1:</label>
+                            <label style="width: 100%; font-size:larger; font-weight: bold;">Jugador 2:</label>
                         </div>
                         <div class="col-sm-4">
                             <label style="width: 100%" id="labelPtsJugador">0</label>
@@ -38,14 +38,26 @@
                     <br>
                     <div class="row">
                         <div class="col-sm-6" style="display: flex; justify-content: center; align-items: center;">
-                            <button id="buttonLanzamiento" class="btn btn-primary" style="width: 200px;" onclick="lanzar()">Lanzar</button>
+                            <button id="buttonLanzamiento" class="btn btn-primary" style="width: 200px;" onclick="iniciarruleta1()">Jugador 1</button>
                         </div>
                         <div class="col-sm-6" style="display: flex; justify-content: center; align-items: center;">
+                            <button id="buttonLanzamiento" class="btn btn-primary" style="width: 200px;" onclick="iniciarruleta2()">Jugador 2</button>
+                        </div>
+                        <!-- <div class="col-sm-6" style="display: flex; justify-content: center; align-items: center; margin-top: 10px;">
                             <button id="buttonVolver" class="btn btn-danger" style="width: 200px;" onclick="volver()">Revancha</button>
+                        </div> -->
+                        <div class="col-sm-6" style="display: flex; justify-content: center; align-items: center; margin-top: 10px;">
+                            <button id="buttonVolver" class="btn btn-danger" style="width: 200px;" onclick="finJuego1()">Detener 1</button>
+                        </div>
+                        <div class="col-sm-6" style="display: flex; justify-content: center; align-items: center; margin-top: 10px;">
+                            <button id="buttonVolver" class="btn btn-danger" style="width: 200px;" onclick="finJuego2()">Detener 2</button>
                         </div>
                     </div>
                     <br>
                     <div class="row">
+                        <div class="col-sm-12" style="display: flex; justify-content: center; align-items: center; margin-bottom: 10px;">
+                            <button id="buttonVolver" class="btn btn-danger" style="width: 150px;" onclick="volver()">Revancha</button>
+                        </div>
                         <div class="col-sm-12" style="display: flex; justify-content: center; align-items: center;">
                             <button id="buttonReset" class="btn btn-secondary" style="width: 150px;" onclick="reset()">Reset</button>
                         </div>
@@ -56,7 +68,7 @@
                         <div class="col-sm-4" style="display: flex; flex-direction: row; justify-content: center;">
                             <div class="row">
                                 <div class="col-sm-12">
-                                    <label class="display-6" >IA:</label>
+                                    <label class="display-6" >JUGADOR 1:</label>
                                     <label id="labelGeneralId" class="display-6" style="font-weight: bold;">0</label>
                                 </div>
                             </div>
@@ -66,9 +78,9 @@
                                 <div class="col-sm-5">
                                     <div class="row" style="background-color: lightgreen; padding: 10px 10px; border-radius: 10px;">
                                         <div class="col-sm-12" style="display: flex; flex-direction: row; justify-content:space-between;">
-                                            <div style=" border-radius: 6px; width: 25px;height: 25px; border: 1px solid black; background-color: purple; padding: 2px 2px;"></div>
-                                            <div style=" border-radius: 6px; width: 25px;height: 25px; border: 1px solid black; background-color: red; padding: 2px 2px;"></div>
-                                            <div style=" border-radius: 6px; width: 25px;height: 25px; border: 1px solid black; background-color: yellow; padding: 2px 2px;"></div>
+                                            <div class="luces1" color1="green"></div>
+                                            <div class="luces1" color1="red"></div>
+                                            <!-- <div class="luces1" color1="yellow"></div> -->
                                         </div>
                                     </div>
                                 </div>
@@ -78,9 +90,9 @@
                                 <div class="col-sm-5">
                                     <div class="row" style="background-color: lightcoral; padding: 10px 10px; border-radius: 10px;">
                                         <div class="col-sm-12" style="display: flex; flex-direction: row; justify-content:space-between;">
-                                            <div style=" border-radius: 6px; width: 25px;height: 25px; border: 1px solid black; background-color: green; padding: 2px 2px;"></div>
-                                            <div style=" border-radius: 6px; width: 25px;height: 25px; border: 1px solid black; background-color: blue; padding: 2px 2px;"></div>
-                                            <div style=" border-radius: 6px; width: 25px;height: 25px; border: 1px solid black; background-color:black; padding: 2px 2px;"></div>
+                                            <div class="luces2" color2="green2"></div>
+                                            <div class="luces2" color2="red2"></div>
+                                            <!-- <div class="luces2" color2="yellow2"></div> -->
                                         </div>
                                     </div>
                                 </div>                                
@@ -89,7 +101,7 @@
                         <div class="col-sm-4" style="display: flex; flex-direction: row; justify-content: center;">
                             <div class="row">
                                 <div class="col-sm-12">
-                                    <label class="display-6">JUGADOR:</label>
+                                    <label class="display-6">JUGADOR 2:</label>
                                     <label id="labelGeneralJugador" class="display-6" style="font-weight: bold;">0</label>
                                 </div>
                             </div>
