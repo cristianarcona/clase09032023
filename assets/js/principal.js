@@ -39,18 +39,21 @@ let num2;
 var ruleta1;
 var ruleta2;
 
-let numTotal = 30
+let numTotal = 10
 buttonVolver.disabled = false
 
 mensaje.innerText = `Gana el primero en llegar a: ${numTotal}`
 function iniciarruleta1(){
-    ruleta1=setInterval(mostrarLuz1,100);
+    ruleta1=setInterval(mostrarLuz1,800);
 }
 function iniciarruleta2(){
-    ruleta2=setInterval(mostrarLuz2,100);
+    ruleta2=setInterval(mostrarLuz2,800);
 }
 function lanzar1(){
     //ruleta2=setInterval(mostrarLuz2,180);
+    if(Number(labelPtsIa.innerText) >= numTotal){
+        finJuego1();
+    }else{
         switch(contadorDeLuz+1){
             case 1:
                 num = obtenerNumRandom()
@@ -64,7 +67,7 @@ function lanzar1(){
                 }
                 else{
                     labelDataIa.innerText = `${labelDataIa.innerText} + ${num}`
-                    console.log(contadorDeLuz);
+                    //console.log(contadorDeLuz);
                 }
             break;
             case 2:
@@ -72,61 +75,57 @@ function lanzar1(){
                 if(Number(labelPtsIa.innerText) != 0){
                     labelPtsIa.innerText = `${Number(labelPtsIa.innerText) - Number(num)}`
                     labelDadoIa.innerText = `${num}`                                
-                }else{
-
                 }
                 if(labelDataIa.innerText === "0"){
                     labelDataIa.innerText = `${num}`
                 }
                 else{
                     labelDataIa.innerText = `${labelDataIa.innerText} - ${num}`
-                    console.log(contadorDeLuz);
+                    //console.log(contadorDeLuz);
                 }
             break;
         }
-        if(Number(labelPtsIa.innerText) >= numTotal){
-            finJuego1();
-        }
+    } 
 
     // finJuego()
 }
 
 function lanzar2(){
-    switch(contadorDeLuz+1){
-        case 1:
-            num = obtenerNumRandom()
-            
-            labelPtsJugador.innerText = `${Number(labelPtsJugador.innerText) + Number(num)}`
-            labelDadoJugador.innerText = `${num}`            
-    
-            if(labelDataJugador.innerText === "0"){
-                labelDataJugador.innerText = `${num}`
-                
-            }
-            else{
-                labelDataJugador.innerText = `${labelDataJugador.innerText} + ${num}`
-                console.log(contadorDeLuz);
-            }
-        break;
-        case 2:
-            num = obtenerNumRandom()
-            if(Number(labelPtsJugador.innerText) != 0){
-                labelPtsJugador.innerText = `${Number(labelPtsJugador.innerText) - Number(num)}`
-                labelDadoJugador.innerText = `${num}`                                
-            }else{
-
-            }
-            if(labelDataJugador.innerText === "0"){
-                labelDataJugador.innerText = `${num}`
-            }
-            else{
-                labelDataJugador.innerText = `${labelDataJugador.innerText} - ${num}`
-                console.log(contadorDeLuz);
-            }
-        break;
-    }
     if(Number(labelPtsJugador.innerText) >= numTotal){
         finJuego2();
+    }else{
+        switch(contadorDeLuz+1){
+            case 1:
+                num = obtenerNumRandom()
+                
+                labelPtsJugador.innerText = `${Number(labelPtsJugador.innerText) + Number(num)}`
+                labelDadoJugador.innerText = `${num}`            
+        
+                if(labelDataJugador.innerText === "0"){
+                    labelDataJugador.innerText = `${num}`
+                    
+                }
+                else{
+                    labelDataJugador.innerText = `${labelDataJugador.innerText} + ${num}`
+                    //console.log(contadorDeLuz);
+                }
+            break;
+            case 2:
+                num = obtenerNumRandom()
+                if(Number(labelPtsJugador.innerText) != 0){
+                    labelPtsJugador.innerText = `${Number(labelPtsJugador.innerText) - Number(num)}`
+                    labelDadoJugador.innerText = `${num}`                                
+                }
+                if(labelDataJugador.innerText === "0"){
+                    labelDataJugador.innerText = `${num}`
+                }
+                else{
+                    labelDataJugador.innerText = `${labelDataJugador.innerText} - ${num}`
+                    //console.log(contadorDeLuz);
+                }
+            break;
+        }
+    
     }
     // finJuego()
 }
@@ -167,10 +166,10 @@ function finJuego1(){
         buttonLanzamiento.disabled = true
         buttonVolver.disabled = false
         if(Number(labelPtsIa.innerText) >= numTotal){
-            labelResult.innerText = 'IA'
+            labelResult.innerText = 'Jugador 1'
             labelGeneralId.innerText = Number(labelGeneralId.innerText) + 1
         }else{
-            labelResult.innerText = 'Jugador 1'
+            labelResult.innerText = 'Jugador 2'
             labelGeneralJugador.innerText = Number(labelGeneralJugador.innerText) + 1
         }
         divColorResult.className = 'alert alert-success'
@@ -193,10 +192,10 @@ function finJuego2(){
         buttonLanzamiento.disabled = true
         buttonVolver.disabled = false
         if(Number(labelPtsIa.innerText) >= numTotal){
-            labelResult.innerText = 'IA'
+            labelResult.innerText = 'Jugador 1'
             labelGeneralId.innerText = Number(labelGeneralId.innerText) + 1
         }else{
-            labelResult.innerText = 'Jugador 1'
+            labelResult.innerText = 'Jugador 2'
             labelGeneralJugador.innerText = Number(labelGeneralJugador.innerText) + 1
         }
         divColorResult.className = 'alert alert-success'
