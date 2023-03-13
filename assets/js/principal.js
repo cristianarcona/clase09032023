@@ -44,10 +44,10 @@ buttonVolver.disabled = false
 
 mensaje.innerText = `Gana el primero en llegar a: ${numTotal}`
 function iniciarruleta1(){
-    ruleta1=setInterval(mostrarLuz1,1000);
+    ruleta1=setInterval(mostrarLuz1,100);
 }
 function iniciarruleta2(){
-    ruleta2=setInterval(mostrarLuz2,1000);
+    ruleta2=setInterval(mostrarLuz2,100);
 }
 function lanzar1(){
     //ruleta2=setInterval(mostrarLuz2,180);
@@ -225,6 +225,8 @@ function limpiar(){
     labelDataJugador.innerText = '0'
     labelDataIa.innerText = '0'
     buttonLanzamiento.disabled = false
-    buttonVolver.disabled = true
+    buttonVolver.disabled = false
     resultadoGlobal.style.display = 'none';
+    clearInterval(ruleta1);
+    clearInterval(ruleta2);
 }
