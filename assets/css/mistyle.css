@@ -1,41 +1,40 @@
-.luces1 {
-    border-radius: 6px;
-    width: 25px;
-    height: 25px;
-    border: 1px solid black;
-    padding: 2px 2px;
-    background-color: rgb(0, 0,0,0.7);
-}
-.luces2 {
-    border-radius: 6px;
-    width: 25px;
-    height: 25px;
-    border: 1px solid black;
-    padding: 2px 2px;
-    background-color: rgb(0, 0,0,0.7);
-}
+.glitched {
+  text-align: center;
+  font-family: Arial;
+  font-size: 30px;
+  color: #1278BF;
+  text-shadow: 0px 0px 9px #508AD3; }
 
-.red{
-    background-color: #c0392b;
-    box-shadow: 0 0 10px 1px #c0392b;
-}
-.yellow{
-    background-color: #f1c40f;
-    box-shadow: 0 0 10px 1px #f1c40f;
-}
-.green{
-    background-color: #2ecc71;
-    box-shadow: 0 0 10px 1px #2ecc71;
-}
-.red2{
-    background-color: #c0392b;
-    box-shadow: 0 0 10px 1px #c0392b;
-}
-.yellow2{
-    background-color: #f1c40f;
-    box-shadow: 0 0 10px 1px #f1c40f;
-}
-.green2{
-    background-color: #2ecc71;
-    box-shadow: 0 0 10px 1px #2ecc71;
-}
+.luces1 {
+  border-radius: 6px;
+  width: 25px;
+  height: 25px;
+  border: 1px solid black;
+  padding: 2px 2px;
+  background-color: rgba(0, 0, 0, 0.7); }
+
+.luces2 {
+  border-radius: 6px;
+  width: 25px;
+  height: 25px;
+  border: 1px solid black;
+  padding: 2px 2px;
+  background-color: rgba(0, 0, 0, 0.7); }
+
+.red {
+  background-color: #c0392b;
+  box-shadow: 0 0 10px 1px #c0392b; }
+
+.green {
+  background-color: #2ecc71;
+  box-shadow: 0 0 10px 1px #2ecc71; }
+
+.red2 {
+  background-color: #c0392b;
+  box-shadow: 0 0 10px 1px #c0392b; }
+
+.green2 {
+  background-color: #2ecc71;
+  box-shadow: 0 0 10px 1px #2ecc71; }
+
+/*# sourceMappingURL=mistyle.css.map */

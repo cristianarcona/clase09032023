@@ -39,7 +39,7 @@ let num2;
 var ruleta1;
 var ruleta2;
 
-let numTotal = 10
+let numTotal = 20
 buttonVolver.disabled = false
 
 mensaje.innerText = `Gana el primero en llegar a: ${numTotal}`

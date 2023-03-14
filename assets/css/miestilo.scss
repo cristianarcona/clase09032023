@@ -1,0 +1,44 @@
+$color-rojo: #c0392b;
+$color-verde: #2ecc71;
+$color-negro:rgba(0,0,0,0.7);
+
+.glitched{
+    text-align: center;
+    font-family: Arial; 
+    font-size: 30px; 
+    color: #1278BF; 
+    text-shadow: 0px 0px 9px #508AD3;
+}
+.luces1 {
+    border-radius: 6px;
+    width: 25px;
+    height: 25px;
+    border: 1px solid black;
+    padding: 2px 2px;
+    background-color: $color-negro;
+}
+.luces2 {
+    border-radius: 6px;
+    width: 25px;
+    height: 25px;
+    border: 1px solid black;
+    padding: 2px 2px;
+    background-color: $color-negro;
+}
+
+.red{
+    background-color: $color-rojo;
+    box-shadow: 0 0 10px 1px $color-rojo;
+}
+.green{
+    background-color: $color-verde;
+    box-shadow: 0 0 10px 1px $color-verde;
+}
+.red2{
+    background-color: $color-rojo;
+    box-shadow: 0 0 10px 1px $color-rojo;
+}
+.green2{
+    background-color: $color-verde;
+    box-shadow: 0 0 10px 1px $color-verde;
+}
